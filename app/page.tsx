@@ -1,140 +1,146 @@
 import Link from 'next/link';
 import { Calculator } from '@/components/Calculator';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { ParticleBackground } from '@/components/ParticleBackground';
+import { Terminal, Zap, TrendingUp, BarChart3, Code2, Cpu } from 'lucide-react';
 
 export default function Home() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-        <header className="border-b">
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <div className="min-h-screen relative overflow-hidden">
+        <ParticleBackground />
+        <div className="scan-line" />
+
+        <header className="relative z-10 border-b border-neon-cyan/20 bg-cyber-gray/10 backdrop-blur-cyber">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-blue-600"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                <path d="M12 18V6" />
-              </svg>
-              <span className="font-bold text-xl text-gray-900">ROICalculator</span>
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <Terminal className="w-8 h-8 text-neon-cyan animate-pulse-neon" />
+                <div className="absolute inset-0 w-8 h-8 border border-neon-cyan/50 rounded animate-cyber-pulse" />
+              </div>
+              <span className="font-tech font-bold text-2xl neon-text">
+                ROI<span className="text-neon-pink">CALC</span>
+              </span>
             </div>
-            <nav>
-              <ul className="flex gap-6">
-                <li>
-                  <Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#calculator" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    Calculator
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            <div className="flex items-center gap-6">
+              <nav>
+                <ul className="flex gap-6">
+                  <li>
+                    <Link href="/" className="text-gray-300 hover:text-neon-cyan transition-all duration-300 font-mono text-sm">
+                      [HOME]
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#features" className="text-gray-300 hover:text-neon-cyan transition-all duration-300 font-mono text-sm">
+                      [FEATURES]
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#calculator" className="text-gray-300 hover:text-neon-cyan transition-all duration-300 font-mono text-sm">
+                      [CALC]
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+              <ThemeToggle />
+            </div>
           </div>
         </header>
 
-        <main>
+        <main className="relative z-10">
           <section className="py-20 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Calculate Your <span className="text-blue-600">Return on Investment</span>
+            <div className="container mx-auto max-w-6xl">
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full">
+                  <Cpu className="w-4 h-4 text-neon-cyan animate-pulse" />
+                  <span className="text-neon-cyan font-mono text-sm">ADVANCED_ROI_CALCULATOR_v2.0</span>
+                </div>
+                <h1 className="text-5xl md:text-7xl font-tech font-black mb-6 leading-tight">
+                  <span className="neon-text">CALCULATE</span>
+                  <br />
+                  <span className="text-white">YOUR</span>
+                  <br />
+                  <span className="text-neon-pink animate-glow">ROI</span>
                 </h1>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  See how much you could save by implementing our solution. Use our calculator to get a personalized ROI estimate in seconds.
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto font-mono leading-relaxed">
+                  <span className="text-neon-cyan">&gt;</span> Advanced financial analysis powered by cutting-edge algorithms
+                  <br />
+                  <span className="text-neon-cyan">&gt;</span> Real-time calculations with precision metrics
                 </p>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
-                <div className="md:w-1/2">
-                  <img 
-                    src="https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                    alt="Business growth chart"
-                    className="rounded-lg shadow-lg w-full"
-                  />
-                </div>
-                <div className="md:w-1/2">
-                  <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h2 className="text-2xl font-semibold mb-4">Why Calculate Your ROI?</h2>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-green-500 mt-1 flex-shrink-0"
-                        >
-                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                          <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                        <span>Make data-driven decisions for your business</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-green-500 mt-1 flex-shrink-0"
-                        >
-                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                          <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                        <span>Understand the financial impact of your investments</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-green-500 mt-1 flex-shrink-0"
-                        >
-                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                          <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                        <span>Optimize your budget allocation for maximum returns</span>
-                      </li>
-                    </ul>
-                    <div className="mt-6">
-                      <a 
-                        href="#calculator" 
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium inline-block transition-colors"
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="relative">
+                  <div className="cyber-card p-8 animate-float">
+                    <div className="absolute top-4 right-4">
+                      <div className="flex items-center gap-2 text-neon-green font-mono text-xs">
+                        <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+                        SYSTEM_ONLINE
+                      </div>
+                    </div>
+
+                    <h2 className="text-2xl font-tech font-bold mb-6 text-neon-cyan">
+                      [ANALYSIS_MODULE]
+                    </h2>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3 group">
+                        <TrendingUp className="w-5 h-5 text-neon-green mt-1 group-hover:animate-pulse" />
+                        <div>
+                          <span className="text-white font-mono">Data-driven decision making</span>
+                          <div className="text-gray-400 text-sm font-mono mt-1">
+                            Execute strategic choices based on quantified metrics
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 group">
+                        <BarChart3 className="w-5 h-5 text-neon-blue mt-1 group-hover:animate-pulse" />
+                        <div>
+                          <span className="text-white font-mono">Financial impact analysis</span>
+                          <div className="text-gray-400 text-sm font-mono mt-1">
+                            Comprehensive investment performance evaluation
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 group">
+                        <Zap className="w-5 h-5 text-neon-orange mt-1 group-hover:animate-pulse" />
+                        <div>
+                          <span className="text-white font-mono">Resource optimization</span>
+                          <div className="text-gray-400 text-sm font-mono mt-1">
+                            Maximize returns through intelligent allocation
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-8">
+                      <a
+                        href="#calculator"
+                        className="cyber-button w-full text-center block font-mono"
                       >
-                        Calculate Your ROI
+                        [INITIALIZE_CALCULATOR]
                       </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="cyber-card p-6">
+                    <div className="font-mono text-neon-green text-sm mb-4">
+                      $ ./roi_preview.sh --mode=demo
+                    </div>
+                    <div className="bg-cyber-darker rounded p-4 font-mono text-sm">
+                      <div className="text-neon-cyan mb-2">Initializing ROI Calculator...</div>
+                      <div className="text-gray-400 mb-1">Loading financial modules... [OK]</div>
+                      <div className="text-gray-400 mb-1">Connecting to data streams... [OK]</div>
+                      <div className="text-gray-400 mb-1">Calibrating algorithms... [OK]</div>
+                      <div className="text-neon-green mt-3">System ready for analysis.</div>
+                      <div className="text-neon-pink mt-2 animate-pulse">
+                        &gt; Awaiting user input...
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -142,163 +148,165 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="features" className="py-16 bg-gray-50">
+          <section id="features" className="py-20 bg-cyber-dark/50">
             <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-12">Why Our Calculator Works</h2>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-tech font-bold mb-4">
+                  <span className="text-neon-cyan">[SYSTEM_</span>
+                  <span className="text-white">CAPABILITIES</span>
+                  <span className="text-neon-cyan">]</span>
+                </h2>
+                <p className="text-gray-400 font-mono">Advanced features for precision analysis</p>
+              </div>
+
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-blue-600"
-                    >
-                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                    </svg>
+                <div className="cyber-card p-8 group hover:shadow-neon-strong transition-all duration-500">
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-neon-cyan/20 rounded-lg flex items-center justify-center mb-4 group-hover:animate-pulse">
+                      <Code2 className="w-8 h-8 text-neon-cyan" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-neon-green rounded-full animate-pulse"></div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Accurate Calculations</h3>
-                  <p className="text-gray-600">
-                    Our calculator uses precise formulas to ensure you get the most accurate ROI estimate possible.
+                  <h3 className="text-xl font-tech font-bold mb-3 text-neon-cyan">PRECISION_ENGINE</h3>
+                  <p className="text-gray-300 font-mono text-sm leading-relaxed">
+                    Quantum-grade algorithms ensure maximum accuracy in financial projections and ROI calculations.
                   </p>
+                  <div className="mt-4 text-xs font-mono text-neon-green">
+                    [ACCURACY: 99.97%]
+                  </div>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-blue-600"
-                    >
-                      <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
-                      <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
-                      <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" />
-                    </svg>
+
+                <div className="cyber-card p-8 group hover:shadow-neon-strong transition-all duration-500">
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-neon-blue/20 rounded-lg flex items-center justify-center mb-4 group-hover:animate-pulse">
+                      <Zap className="w-8 h-8 text-neon-blue" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-neon-green rounded-full animate-pulse"></div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Easy to Use</h3>
-                  <p className="text-gray-600">
-                    Simple, straightforward interface that guides you through each step of the calculation process.
+                  <h3 className="text-xl font-tech font-bold mb-3 text-neon-blue">NEURAL_INTERFACE</h3>
+                  <p className="text-gray-300 font-mono text-sm leading-relaxed">
+                    Intuitive user experience with real-time feedback and intelligent form validation systems.
                   </p>
+                  <div className="mt-4 text-xs font-mono text-neon-green">
+                    [RESPONSE_TIME: &lt;50ms]
+                  </div>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-blue-600"
-                    >
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
+
+                <div className="cyber-card p-8 group hover:shadow-neon-strong transition-all duration-500">
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-neon-pink/20 rounded-lg flex items-center justify-center mb-4 group-hover:animate-pulse">
+                      <BarChart3 className="w-8 h-8 text-neon-pink" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-neon-green rounded-full animate-pulse"></div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Detailed Reporting</h3>
-                  <p className="text-gray-600">
-                    Get a visual breakdown of your ROI with our intuitive charts and detailed analysis.
+                  <h3 className="text-xl font-tech font-bold mb-3 text-neon-pink">DATA_VISUALIZATION</h3>
+                  <p className="text-gray-300 font-mono text-sm leading-relaxed">
+                    Advanced 3D charts and interactive dashboards for comprehensive financial analysis.
                   </p>
+                  <div className="mt-4 text-xs font-mono text-neon-green">
+                    [CHARTS: ENABLED]
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <section id="calculator" className="py-16">
+          <section id="calculator" className="py-20">
             <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-2">Calculate Your ROI</h2>
-                <p className="text-center text-gray-600 mb-8">
-                  Fill out the form below to see how much you could save
-                </p>
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl font-tech font-bold mb-4">
+                    <span className="text-neon-cyan">[ROI_</span>
+                    <span className="text-white">CALCULATOR</span>
+                    <span className="text-neon-cyan">]</span>
+                  </h2>
+                  <p className="text-gray-400 font-mono mb-2">
+                    Initialize financial analysis protocol
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-neon-green font-mono text-sm">
+                    <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+                    SYSTEM_READY_FOR_INPUT
+                  </div>
+                </div>
                 <Calculator />
               </div>
             </div>
           </section>
 
-          <section className="py-16 bg-blue-600 text-white">
+          <section className="py-20 bg-gradient-to-r from-cyber-dark to-cyber-darker border-t border-neon-cyan/20">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl font-bold mb-4">Ready to Maximize Your Returns?</h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto">
-                Contact our team of experts today to learn more about how our solutions can help you achieve better ROI.
-              </p>
-              <button className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors">
-                Contact Us
-              </button>
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-4xl font-tech font-bold mb-6">
+                  <span className="neon-text">READY_TO_</span>
+                  <span className="text-neon-pink">OPTIMIZE</span>
+                  <span className="text-white">?</span>
+                </h2>
+                <p className="text-xl mb-8 text-gray-300 font-mono leading-relaxed">
+                  Connect with our quantum financial analysts to unlock advanced ROI optimization strategies.
+                </p>
+                <button
+                  type="button"
+                  className="cyber-button font-mono text-lg px-8 py-4"
+                >
+                  [INITIATE_CONTACT_PROTOCOL]
+                </button>
+              </div>
             </div>
           </section>
         </main>
 
-        <footer className="bg-gray-900 text-white py-12">
+        <footer className="bg-cyber-darker border-t border-neon-cyan/20 py-16">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-8">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-blue-400"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-                    <path d="M12 18V6" />
-                  </svg>
-                  <span className="font-bold text-xl">ROICalculator</span>
+                <div className="flex items-center gap-3 mb-6">
+                  <Terminal className="w-6 h-6 text-neon-cyan animate-pulse-neon" />
+                  <span className="font-tech font-bold text-xl">
+                    ROI<span className="text-neon-pink">CALC</span>
+                  </span>
                 </div>
-                <p className="text-gray-400">
-                  Helping businesses make better financial decisions with accurate ROI calculations.
+                <p className="text-gray-400 font-mono text-sm leading-relaxed">
+                  Advanced financial analysis systems for next-generation business intelligence.
                 </p>
+                <div className="mt-4 text-xs font-mono text-neon-green">
+                  [STATUS: OPERATIONAL]
+                </div>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4">Links</h3>
+                <h3 className="font-tech font-bold text-lg mb-4 text-neon-cyan">[NAVIGATION]</h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                  <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                  <li><a href="#calculator" className="text-gray-400 hover:text-white transition-colors">Calculator</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; Home</a></li>
+                  <li><a href="#features" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; Features</a></li>
+                  <li><a href="#calculator" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; Calculator</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; About</a></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4">Resources</h3>
+                <h3 className="font-tech font-bold text-lg mb-4 text-neon-cyan">[RESOURCES]</h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; Documentation</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; API Reference</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; Case Studies</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-neon-cyan transition-colors font-mono text-sm">&gt; Support</a></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-4">Contact</h3>
+                <h3 className="font-tech font-bold text-lg mb-4 text-neon-cyan">[CONTACT]</h3>
                 <ul className="space-y-2">
-                  <li className="text-gray-400">hello@roicalculator.com</li>
-                  <li className="text-gray-400">+1 (555) 123-4567</li>
+                  <li className="text-gray-400 font-mono text-sm">admin@roicalc.sys</li>
+                  <li className="text-gray-400 font-mono text-sm">+1.555.ROI.CALC</li>
                 </ul>
+                <div className="mt-4 flex gap-2">
+                  <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+                  <span className="text-neon-green font-mono text-xs">SECURE_CONNECTION</span>
+                </div>
               </div>
             </div>
-            <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-              <p>&copy; {new Date().getFullYear()} ROICalculator. All rights reserved.</p>
+            <div className="border-t border-neon-cyan/20 mt-12 pt-8 text-center">
+              <p className="text-gray-500 font-mono text-sm">
+                &copy; {new Date().getFullYear()} ROI_CALC_SYSTEMS. All rights reserved. |
+                <span className="text-neon-cyan"> QUANTUM_SECURED</span>
+              </p>
             </div>
           </div>
         </footer>
